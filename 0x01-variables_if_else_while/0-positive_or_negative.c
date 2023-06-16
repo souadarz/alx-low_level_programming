@@ -5,7 +5,8 @@
 /**
  * main - Print the sign of a random number
  *
- * Description: Generates a random number and print whether, positive, negative or zero
+ * Description: Generates a random number and print whether,
+ * positive, negative or zero
  * Return: 0
  */
 int main(void)
