@@ -9,7 +9,7 @@
 
 int main(void)
 {
-	int n, m, l, k;
+	int n, m, l, k, initialK;
 
 	for (n = '0'; n <= '9'; n++)
 	{
@@ -17,18 +17,26 @@ int main(void)
 		{
 			for (l = n; l <= '9'; l++)
 			{
-				for (k = m + 1; k <= '9'; k++)
+				if (n < l)
+					initialK = '0';
+				else
+					initialK = m + 1;
+
+				for (k = initialK; k <= '9'; k++)
 				{
 					putchar(n);
 					putchar(m);
 					putchar(' ');
 					putchar(l);
 					putchar(k);
-					if (n != '9' && m != '8')
+
+					if (n == '9' && m == '8' && l == '9' && k == '9')
 					{
-						putchar(',');
-						putchar(' ');
+						continue;
 					}
+
+					putchar(',');
+					putchar(' ');
 				}
 			}
 		}
