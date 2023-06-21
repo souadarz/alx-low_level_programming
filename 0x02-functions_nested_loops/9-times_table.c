@@ -1,25 +1,33 @@
 #include "main.h"
 
 /**
- * print_alphabet_x10 - prints the alphabet
+ * times_table -  prints the 9 times table
  *
- * Description: prints 10 times alphabet in lowercase
- * Return: Always 0 (Success)
+ * Description: function that prints the 9 times table
+ * Return: void
  */
 
-void print_alphabet_x10(void)
+void times_table(void)
 {
-	int i;
-	char j;
+	int c, l, n;
 
-	i = 0;
-	while (i < 10)
+	for (c = 0; c <= 9; c++)
 	{
-		for (j = 'a'; j <= 'z'; j++)
+		for (l = 0; l <= 9; l++)
 		{
-			_putchar(j);
+			n = c * l;
+			_putchar('0' + n);
+
+			if (c != 9)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
+			else
+			{
+				_putchar('$');
+				_putchar('\n');
+			}
 		}
-	_putchar('\n');
-	i++;
 	}
 }
