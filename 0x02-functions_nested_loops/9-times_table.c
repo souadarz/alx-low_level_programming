@@ -63,7 +63,10 @@ void times_table(void)
 		for (l = 0; l <= s; l++)
 		{
 			n = c * l;
-			print_number(n, displaySize);
+			if (l > 0)
+				print_number(n, displaySize);
+			else
+				print_number(n, 1);
 
 			if (l != s)
 			{
