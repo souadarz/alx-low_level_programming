@@ -10,35 +10,22 @@
 
 void print_number(int n)
 {
-	int l, k, nDigit, digit;
+	unsigned int l, k;
 
 	if (n < 0)
 	{
+		k = -n;
 		_putchar('-');
-		n = -n;
-	}
+	} else
+		k = n;
 
-	l = n;
-	k = 1;
-	nDigit = 0;
+	l = k;
 
-	if (n == 0)
-		_putchar('0');
+	l /= 10;
 
-	while (l > 0)
-	{
-		k *= 10;
-		nDigit++;
-		l = l / 10;
-	}
+	if (l != 0)
+		print_number(l);
 
-	k = k / 10;
+	_putchar(k % 10 + '0');
 
-	while (k >= 1)
-	{
-		digit = n / k;
-		_putchar('0' + digit);
-		n = n % k;
-		k = k / 10;
-	}
 }
