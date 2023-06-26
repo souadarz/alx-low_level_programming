@@ -1,15 +1,19 @@
 #include "main.h"
 
 /**
- * reset_to_98 - updates the value of a pointer to points to to 98
- * @n: the integer to be computed
+ * _strlen - returns the length of a string
+ * @s: character to be computed
  *
- * Desciption:function that updates the value of a pointer to points to to 98
- * Return: Always 0.
+ * Desciption: function that returns the length of a string
+ * Return: lenghth of string
  */
 
-void reset_to_98(int *n)
+int _strlen(char *s)
 {
+	int j;
 
-	*n = 98;
+	for (j = 1; s[j] != '\0'; j++)
+	{}
+
+	return (j);
 }
