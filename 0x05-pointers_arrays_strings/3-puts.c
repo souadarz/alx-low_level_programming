@@ -1,15 +1,19 @@
 #include "main.h"
 
 /**
- * reset_to_98 - updates the value of a pointer to points to to 98
- * @n: the integer to be computed
+ * _puts -  prints a string
+ * @str: the integer to be computed
  *
- * Desciption:function that updates the value of a pointer to points to to 98
- * Return: Always 0.
+ * Desciption:  function that prints a string
+ * Return: Always 0
  */
 
-void reset_to_98(int *n)
+void _puts(char *str)
 {
+	int i;
 
-	*n = 98;
+	for (i = 0; *(str + i) != '\0'; i++)
+		_putchar(*(str + i));
+
+	_putchar('\n');
 }
