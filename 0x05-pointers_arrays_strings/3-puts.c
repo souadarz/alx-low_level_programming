@@ -2,7 +2,7 @@
 
 /**
  * _puts -  prints a string
- * @str: the integer to be computed
+ * @str: string to be printed
  *
  * Desciption:  function that prints a string
  * Return: Always 0
