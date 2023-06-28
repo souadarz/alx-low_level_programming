@@ -10,8 +10,8 @@
 
 int _atoi(char *s)
 {
-	int i, number = 0;
-	int numberFound = 0;
+	unsigned int number = 0;
+	int i, numberFound = 0;
 	int sign = 1;
 
 	for (i = 0; s[i] != '\0'; i++)
