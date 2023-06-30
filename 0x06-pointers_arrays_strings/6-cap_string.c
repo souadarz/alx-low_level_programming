@@ -26,9 +26,12 @@ char *cap_string(char *str)
 		for (j = 0; sep[j] != '\0'; j++)
 		{
 			if (str[i] == sep[j])
+			{
 				foundSep = 1;
+				break;
+			}
 
-			else
+			if (str[i] != sep[j])
 				foundSep = 0;
 		}
 	}
