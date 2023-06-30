@@ -18,10 +18,10 @@ char *rot13(char *s)
 		{
 			if ((s[i] >= 'a' && s[i] < 'n') || (s[i] >= 'A' && s[i] < 'N'))
 			{
-				s[i] += 'a' - 'n';
+				s[i] += 13;
 				break;
 			}
-			s[i] -= 'a' - 'n';
+			s[i] -= 13;
 			break;
 		}
 	}
