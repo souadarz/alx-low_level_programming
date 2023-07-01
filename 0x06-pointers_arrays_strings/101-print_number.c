@@ -10,14 +10,17 @@
 
 void print_number(int n)
 {
-	int l, digit, k = 1;
+	int digit, k = 1;
+	unsigned int l, m;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		n = -n;
+		l = -n;
 	}
-	l = n;
+	else
+		l = n;
+	m = l;
 
 	while (l >= 10)
 	{
@@ -27,9 +30,9 @@ void print_number(int n)
 
 	while (k >= 1)
 	{
-		digit = n / k;
+		digit = m / k;
 		_putchar('0' + digit);
-		n = n % k;
+		m = m % k;
 		k = k / 10;
 	}
 }
