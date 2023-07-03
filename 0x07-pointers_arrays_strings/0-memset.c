@@ -6,8 +6,8 @@
  * @s: pointer
  * @b: byte value to be filled with
  *
- * Description: function fills the first n bytes of the memory,
- * area pointed to by s with the constant byte b
+ * Description: function fills the first n bytes of the memory area
+ * pointed to by s with the constant byte b
  * Return: char
  */
 
