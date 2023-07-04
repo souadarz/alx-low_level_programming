@@ -22,6 +22,5 @@ void print_diagsums(int *a, int size)
 		SumDiagonal1 += a[(i * size) + i];
 		SumDiagonal2 += a[(size - 1) * (i + 1)];
 	}
-	printf("the sum of the first diagonal is %d\n", SumDiagonal1);
-	printf("the sum of the seconde diagonal is %d\n", SumDiagonal2);
+	printf("%d, %d\n", SumDiagonal1, SumDiagonal2);
 }
