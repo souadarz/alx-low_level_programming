@@ -13,14 +13,12 @@ int prime_number(int k, int x)
 {
 	if (x < 2 || k > x)
 		return (0);
-	while (k > 1)
-	{
-		if (x % k != 0)
-			return (1);
 
-		else
-			return (0);
-	}
+	if (x % k != 0)
+		return (1);
+
+	else
+		return (0);
 	return (prime_number(k + 1, x));
 }
 
