@@ -30,7 +30,9 @@ int **alloc_grid(int width, int height)
 
 		if (twodmarray[i] == NULL)
 		{
-			free(twodmarray[i]);
+			for (; i >= 0; i--)
+				free(twodmarray[i]);
+
 			free(twodmarray);
 			return (NULL);
 		}
