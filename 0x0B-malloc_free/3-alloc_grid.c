@@ -29,7 +29,11 @@ int **alloc_grid(int width, int height)
 		twodmarray[i] = malloc(sizeof(int) * width);
 
 		if (twodmarray[i] == NULL)
+		{
+			free(twodmarray[i]);
+			free(twodmarray);
 			return (NULL);
+		}
 	}
 	return (twodmarray);
 }
