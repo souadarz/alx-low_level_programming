@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * create_array - function that allocates memory for an array.
+ * _calloc - function that allocates memory for an array.
  * @nmemb: numbers of elements of array
  * @size: number of bytes of an element
  *
