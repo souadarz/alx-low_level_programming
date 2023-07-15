@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 /**
- * alloc_grid -  function that returns a pointer to a 2 dimensional
- *               array of integers.
+ * alloc_grid - function that returns a pointer to a 2 dimensional
+ *              array of integers.
  * @width: width of the grid
  * @height: height of the grid
  *
@@ -30,7 +30,7 @@ int **alloc_grid(int width, int height)
 
 		if (twodmarray[i] == NULL)
 		{
-			for (;i >= 0; i--)
+			for ( ; i >= 0; i--)
 				free(twodmarray[i]);
 
 			free(twodmarray);
