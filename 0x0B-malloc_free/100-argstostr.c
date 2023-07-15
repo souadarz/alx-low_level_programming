@@ -21,7 +21,7 @@ char *argstostr(int ac, char **av)
 
 	for (i = 0; i < ac; i++)
 		len += _strlen(av[i]);
-	ptr = malloc(sizeof(char) * (ac + len));
+	ptr = malloc(sizeof(char) * (ac + len + 1));
 
 	if (ptr == NULL)
 		return (NULL);
