@@ -83,7 +83,7 @@ void print_all(const char * const format, ...)
 	unsigned int i, j;
 	char *sep;
 
-	ty types_a[] = {
+	ty types[] = {
 		{"c", print_char},
 		{"i", print_int},
 		{"f", print_float},
