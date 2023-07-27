@@ -28,12 +28,15 @@ list_t *add_node(list_t **head, const char *str)
 		ptr = malloc(sizeof(list_t));
 
 		if (ptr == NULL)
+		{
+			free(ptr);
 			return (NULL);
+		}
 
 		ptr->str = str1;
 		ptr->next = *head;
 		*head = ptr;
-	}
-
 	return (*head);
+	}
+	return (NULL);
 }
