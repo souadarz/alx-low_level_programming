@@ -22,21 +22,22 @@ list_t *add_node(list_t **head, const char *str)
 
 	for (i = 0; str1[i] != '\0'; i++)
 		;
+	ptr = malloc(sizeof(list_t));
 
-	if (head != NULL && str != NULL)
+	if (ptr == NULL)
 	{
-		ptr = malloc(sizeof(list_t));
-
-		if (ptr == NULL)
-		{
-			free(ptr);
-			return (NULL);
-		}
-
-		ptr->str = str1;
-		ptr->next = *head;
-		*head = ptr;
-	return (*head);
+		free(ptr);
+		return (NULL);
 	}
-	return (NULL);
+	ptr->str = str1;
+
+	if (ptr->str == NULL)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	ptr->len = i;
+	ptr->next = *head;
+	*head = ptr;
+	return (*head);
 }
