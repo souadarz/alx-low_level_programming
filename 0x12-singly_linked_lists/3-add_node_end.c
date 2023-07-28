@@ -1,6 +1,3 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include "lists.h"
 
 /**
@@ -8,7 +5,6 @@
  *             at the end of a list_t list.
  * @head: double pointer to a head
  * @str: the string to add a new node
- *
  * Return: the address of the new element, or NULL if it failed
  */
 
@@ -16,7 +12,6 @@ list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *ptr;
 	list_t *new_node;
-	char *str1;
 	unsigned int i;
 
 	new_node = malloc(sizeof(list_t));
@@ -27,15 +22,12 @@ list_t *add_node_end(list_t **head, const char *str)
 		return (NULL);
 	}
 
-	str1 = strdup(str);
-
-	for (i = 0; str1[i] != '\0'; i++)
+	for (i = 0; str[i] != '\0'; i++)
 		;
-
-	new_node->str = str1;
+	new_node->str = strdup(str);
 	new_node->len = i;
 
-	if (new_node->str == NULL)
+	if (strdup(str) == NULL)
 	{
 		free(new_node);
 		return (NULL);
