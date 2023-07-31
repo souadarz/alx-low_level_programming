@@ -1,10 +1,9 @@
 #include "main.h"
 
 /**
- * cap_string - copies a string
- * @str: string to be copie
+ * cap_string - function that capitalizes all words of a string.
+ * @str: string to be computed
  *
- * Description: function that copies a string
  * Return: char
  */
 
