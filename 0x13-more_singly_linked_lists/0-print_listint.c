@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include <stdlid.h>
+#include <stdlib.h>
+#include "lists.h"
 
 /**
  * print_listint - function that prints the element of lsitint_t list
@@ -9,12 +10,12 @@
 
 size_t print_listint(const listint_t *h)
 {
-	const listilt_t *ptr;
+	const listint_t *ptr;
 	size_t nbr_nodes;
 
 	ptr = h;
 
-	for (nbr_nodes; ptr != NULL; nbr_nodes++)
+	for (nbr_nodes = 0; ptr != NULL; nbr_nodes++)
 	{
 		printf("%d\n", ptr->n);
 		ptr = ptr->next;
