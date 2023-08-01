@@ -16,12 +16,16 @@ int pop_listint(listint_t **head)
 	listint_t *ptr;
 	listint_t *temp;
 
-	if (head == NULL)
+	if (*head == NULL)
 		return (0);
 
-	ptr = *head;
-	n = ptr->n;
-	temp = ptr->next;
-	*head = temp;
+	else
+	{
+		ptr = *head;
+		n = ptr->n;
+		temp = ptr->next;
+		free(*head);
+		*head = temp;
+	}
 	return (n);
 }
