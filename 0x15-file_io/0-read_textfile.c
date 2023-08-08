@@ -16,9 +16,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (filename == NULL)
 		return (0);
-	file_d = open("filename", O_RDONLY);
 
-	if (file_d < 0)
+	file_d = open(filename, O_RDONLY);
+
+	if (file_d == -1)
 	{
 		close(file_d);
 		return (0);
@@ -40,12 +41,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 	count2 = write(STDOUT_FILENO, ptr, count1);
 
-	if (count2 == 0)
+	if (count2 == -1)
 	{
 		close(file_d);
 		return (0);
 	}
 	free(ptr);
 	close(file_d);
-	return (count2);
+	return (count1);
 }
