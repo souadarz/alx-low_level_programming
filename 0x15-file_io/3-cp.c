@@ -2,45 +2,53 @@
 
 /**
  *main - that copies the content of a file to another file
- *@filename: the name of 
- *@text_content: is a NULL terminated string to write to the file.
- * Return: 1 on success, -1 on failure
+ *@argc: number of arguments
+ *@argv: the argument vector
+ * Return:...
  */
 
-int main(int argc, char *agrv[])
+int main(int argc, char *argv[])
 {
-	int file_d, len, wrt;
+	int fd_1, fd_2, result1, result2;
+	char buffer[1024];
 
-	if (filename == NULL)
-		return (-1);
+	if (argc != 3)
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
 
-	file_d = open(filename, O_WRONLY | O_APPEND);
+	fd_1 = open(argv[1], O_RDONLY);
 
-	if (file_d == -1)
+	if (fd_1 < 0)
 	{
-		close(file_d);
-		return (-1);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	fd_2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+
+	if (fd_2 < 0)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+
+	while (result1)
+	{
+		result1 = read(fd_1, buffer, 1024);
+
+		if (result1 < 0)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
+		}
+		result2 = write(fd_2, buffer, result1);
+
+		if (result2 < 0)
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	}
 
-	if (text_content == NULL)
-	{
-		if (file_d)
-			return (1);
+	close(fd_1);
 
-		else
-			return (-1);
-	}
+	if (close(fd_1) < 0)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_1), exit(100);
+	close(fd_2);
 
-	for (len = 0; text_content[len] != '\0'; len++)
-		;
-
-	wrt = write(file_d, text_content, len);
-
-	if (wrt == -1)
-	{
-		close(file_d);
-		return (-1);
-	}
-	close(file_d);
-	return (1);
+	if (close(fd_2) < 0)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_2), exit(100);
+	return (0);
 }
