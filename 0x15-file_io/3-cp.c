@@ -40,11 +40,9 @@ int main(int argc, char *av[])
 		if (result2 < 0)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
 	}
-	close(fd_1);
 
 	if (close(fd_1) < 0)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_1), exit(100);
-	close(fd_2);
 
 	if (close(fd_2) < 0)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_2), exit(100);
