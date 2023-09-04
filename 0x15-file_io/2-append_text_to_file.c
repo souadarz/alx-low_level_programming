@@ -18,23 +18,15 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (file_d == -1)
 		return (-1);
 
-	if (text_content)
-	{
-		if (file_d)
-			return (1);
-
-		else
-			return (-1);
-	}
-
 	for (len = 0; text_content[len] != '\0'; len++)
 		;
-	result = write(file_d, text_content, len);
 
-	if (result == -1)
+	if (text_content)
 	{
-		close(file_d);
-		return (-1);
+		result = write(file_d, text_content, len);
+
+		if (result == -1)
+			return (-1);
 	}
 	close(file_d);
 	return (1);
